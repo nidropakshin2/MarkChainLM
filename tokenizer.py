@@ -45,7 +45,7 @@ class Tokenizer:
 
 
     def tokenize_file(self, data_in, data_out):
-        with open(data_in, 'r') as f_in, open(data_out, 'w') as f_out:
+        with open(data_in, 'r', encoding="utf-8") as f_in, open(data_out, 'w', encoding="utf-8") as f_out:
             for line in f_in.readlines():
                 for i in range(0, len(line) - self.n_gramm + 1, self.n_gramm - self.sliding):
                     seq = line[i:i + self.n_gramm]

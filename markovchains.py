@@ -59,14 +59,15 @@ class MarkovChain:
             data = [token.replace("\n", '') for token in f_in]
             states = self.states 
             M = csr_matrix((len(states), len(states)), dtype=np.float64)
+            print("Training...")
             for token_idx, token in tqdm(enumerate(data)):
                 if token_idx == len(data) - 1:
                     break    
                 M[int(token), int(data[token_idx + 1])] += 1
             M = self.normalize(M)
         self.transition_matrix = M
-        self.init_prob = np.round(-1 * eigs(self.transition_matrix.T, k=1)[-1].real.flatten(), decimals=6)
-        self.init_prob = self.init_prob / sum(self.init_prob)
+        # self.init_prob = np.round(-1 * eigs(self.transition_matrix.T, k=1)[-1].real.flatten(), decimals=6)
+        # self.init_prob = self.init_prob / sum(self.init_prob)
         if save_model_file:
             save_npz(os.path.dirname(__file__) + "/models/" + save_model_file, M)
         
@@ -91,6 +92,7 @@ class MarkovChain:
             # raise ValueError(f"Что-то не так с обучением: {current_state, current_idx}")
             return -1
 
+        # print(len(self.states), len(probabilities[0]))
         next_idx = random.choices(
             population=range(len(self.states)),
             weights=probabilities[0],
