@@ -69,7 +69,15 @@ Here are some interesting and funny examples
 Я знаю:
 ```
 
+You can train (set `train = True`) or generate (resp. `train = False`) from `main.py` specifing your text and parameters of tokenizer (`n_gramm`, `sliding`) 
+
 ```
-Никто б година затрудненья, сундуки,
-Варенья
+\> main.py
+Generating...
+100%|██████████████████████████████████████████████████████████████████████████████████████| 39/39 [00:00<00:00, 327.73it/s]
+м уборе,
+Особенной,
+Бывало, почему лукавить.
+Приподнялась от друзья и друзей.
+Сажают лиц нежне
 ```
