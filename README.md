@@ -72,7 +72,7 @@ Here are some interesting and funny examples
 You can train (set `train = True`) or generate (resp. `train = False`) from `main.py` specifing your text and parameters of tokenizer (`n_gramm`, `sliding`) 
 
 ```
-\> main.py
+user@username:~/.../MarkovChainLM$ main.py
 Generating...
 100%|██████████████████████████████████████████████████████████████████████████████████████| 39/39 [00:00<00:00, 327.73it/s]
 м уборе,
